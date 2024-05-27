@@ -37,7 +37,7 @@ function checkWin(board, player) {
                     count++;
                 }
 
-                if (count === 5) {
+                if (count === ITERATIONS) {
                     // Check for overline
                     const prevRow = row - y;
                     const prevCol = col - x;
