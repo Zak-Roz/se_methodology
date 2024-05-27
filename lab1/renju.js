@@ -82,10 +82,16 @@ function main() {
     const results = [];
 
     for (let testCase = 0; testCase < testCases; testCase++) {
-        const board = [];
+        let board = [];
 
         for (let i = 0; i < SIZE; i++) {
-            board.push(input[index++].split('').map(Number));
+            board.push(input[index++]?.split('').map(Number));
+        }
+
+        board = board.filter(item => item);
+
+        if (board.length !== SIZE) {
+            return console.error('\x1b[31m%s\x1b[0m', `ERROR: Test case ${testCases} had an error because the board size was not equal to ${SIZE}`);
         }
 
         results.push(processTestCase(board));
