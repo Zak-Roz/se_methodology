@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const SIZE = 19;
+const ITERATIONS = 5;
 
 // Function to read the input file and parse it
 function readInputFile(filePath) {
@@ -25,7 +26,7 @@ function checkWin(board, player) {
             for (const { x, y } of directions) {
                 let count = 0;
 
-                for (let i = 0; i < 5; i++) {
+                for (let i = 0; i < ITERATIONS; i++) {
                     const newRow = row + i * y;
                     const newCol = col + i * x;
 
@@ -73,10 +74,6 @@ function processTestCase(board) {
 
 // Main function to run the Renju game checker
 function main() {
-    // test_hor.txt
-    // test_main_diag.txt
-    // test_side_diag.txt
-    // test_vertical.txt
     const inputFilePath = path.join(__dirname, 'tests', 'test_main_diag.txt');
     const input = readInputFile(inputFilePath);
 
